@@ -1,0 +1,66 @@
+.myBody
+{
+	width: 1100px;
+	text-align: center;
+	margin: 0 auto;
+	background-image: url("../images/bg.png");
+	background-repeat:repeat-x;
+
+	
+    -webkit-box-shadow: 3px 3px 10px #888888;
+    box-shadow: 0px 3px 35px 3px #aaaaaa;
+}
+
+.myContainer
+{
+	margin-top: 10px;
+}
+.myNav
+{
+	width: 1050px;
+	margin: 0 auto;
+	background-color: #61c4f1;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius:5px;
+}
+
+
+.myLi
+{
+    
+    border-right: 1.5px solid #fff;
+    font-family: 微软雅黑;
+}
+
+
+
+.myNav ul>li:last-child
+{
+	border-right: none;
+}
+.myNav a
+{
+	color: #fff;
+}
+
+.myNav a:hover
+{
+	color: #000;
+}
+
+.myNav a:active
+{
+	color: #000;
+}
+
+.open a
+{
+	color:#000;
+}
+
+.dropdown-menu
+{
+   
+}
+

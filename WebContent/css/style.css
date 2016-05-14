@@ -1,0 +1,94 @@
+.content{
+    width: 1050px;
+    /*background-color: #00E0F2;*/
+    margin: 2em auto 0;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.con-right{
+    width: 20%;
+    background-color: #422100;
+    position: relative;
+}
+.con-left{
+    width: 78%;
+}
+.le-right{
+    width: 70%;
+    /*background-color: #00E0F2;*/
+    border-radius: 10px;
+    border: solid 1px #269abc;
+    height: 500px;
+    box-shadow: 0px 3px 35px 3px #aaaaaa;
+}
+.le-left{
+    width: 28%;
+    background-color: rgba(51, 204, 255,1);
+}
+.content ul{
+    margin: 0!important;
+    padding: 0!important;
+}
+.content li{
+    list-style: none;
+    text-align: center;
+    border-bottom: solid 1px #999;
+}
+.content li a{
+    display: inline-block;
+    padding: 5px 0;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+}
+
+.fix-login{
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 35px 3px #aaaaaa;
+    position: absolute;
+    right: 0;
+    top: 80px;
+}
+.fix-login form div{
+    width: 90%;
+    margin: 10px auto;
+    font-size: x-small;
+    /*background-color: #00E0F2;*/
+}
+.fix-login form div input{
+    border-radius: 5px;
+    border: solid 1px #999999;
+    height: 30px;
+    display: inline-block;
+}
+.fix-login form div input[type=submit]{
+    border: none;
+}
+.fix-img{
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 35px 3px #aaaaaa;
+    position: absolute;
+    right: 0;
+    top: 300px;
+}
+.form-group{
+    margin: 0 -50px;
+}
+.footer{
+    background-color: #0bc2d1;
+    height: 80px;
+    width: 1050px;
+    margin: 2em auto 0;
+}
+.footer p{
+    text-align: center;
+}
