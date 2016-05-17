@@ -5,16 +5,16 @@
 	margin: 0 auto;
 	background-image: url("../images/bg.png");
 	background-repeat:repeat-x;
-
-	
-    -webkit-box-shadow: 3px 3px 10px #888888;
-    box-shadow: 0px 3px 35px 3px #aaaaaa;
+    -webkit-box-shadow: 3px 3px 10px #dddddd;
+    box-shadow: 0px 3px 15px 2px #dddddd;
 }
 
 .myContainer
 {
 	margin-top: 10px;
 }
+
+/* 导航栏 */
 .myNav
 {
 	width: 1050px;
@@ -25,7 +25,6 @@
     border-radius:5px;
 }
 
-
 .myLi
 {
     
@@ -33,12 +32,11 @@
     font-family: 微软雅黑;
 }
 
-
-
 .myNav ul>li:last-child
 {
 	border-right: none;
 }
+
 .myNav a
 {
 	color: #fff;
@@ -64,3 +62,82 @@
    
 }
 
+/*轮播图*/
+.demo { 
+
+float: left;
+
+width: 800%;
+} 
+
+
+#demo
+{
+	clear: both;
+    overflow:hidden; 
+}
+
+#demo1 { 
+
+float: left; 
+
+/* width: 985px; */
+
+} 
+#demo2 { 
+float: left; 
+} 
+
+/*登录*/
+.username
+{
+	margin:0 auto;
+	margin-top: 30px;
+	margin-bottom: 5px;
+	width:70%;
+}
+
+.password
+{
+	margin:0 auto;
+	margin-top: 20px;
+	margin-bottom: 5px;
+	width: 70%;
+}
+
+label
+{
+	width: 30%；
+	margin-top:40px;
+	margin-left: 10px;
+	font-family: 幼圆;
+	font-size: 13px;
+
+}
+
+
+button
+{
+	margin-top: 10px;
+	background-color: #61c4f1;
+	width: 60%;
+	height: 35px;
+	border-radius: 5px;
+	box-shadow:3px 3px 10px 2px #dddddd;
+	filter:alpha(opacity=80);
+	opacity:0.8;
+	border: none;
+	font-family: 微软雅黑;
+	color: #fff;
+
+}
+
+.row .col-md-3 button a
+{
+	text-decoration: none;
+}
+
+.fix-login button a
+{
+	text-decoration: none;
+}

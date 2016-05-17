@@ -83,6 +83,4 @@ public  class BaseController<T>{
 		return baseDao.getPage(pageIndex, pageSize).getData();
 	}
 	
-	
-	
 }
