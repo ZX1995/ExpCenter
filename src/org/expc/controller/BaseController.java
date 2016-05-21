@@ -43,12 +43,12 @@ public  class BaseController<T>{
 	}
 
 	@RequestMapping("/add")
-	public void add(T entity,HttpServletResponse res) throws IOException
+	@ResponseBody public String add(T entity,HttpServletResponse res) throws IOException
 	{
 		String msg="添加成功";
 		if(!baseDao.save(entity))
 			msg="添加失败";
-		res.getWriter().println(msg);
+		return msg;
 	}
 	@RequestMapping("/addRView")
 	public ModelAndView addRView(T entity,String view)

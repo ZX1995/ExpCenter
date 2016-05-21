@@ -23,7 +23,7 @@ import org.springframework.util.Assert;
 
 public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	private Class<T> entityClass;
-	@Resource(name = "hibernateTemplate")//相当于set方法
+	
 	private HibernateTemplate hibernateTemplate;//hibernateTemplate就是hibernate
 
 	public HibernateTemplate getHibernateTemplate() {
@@ -76,6 +76,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 		this.getHibernateTemplate().save(entity);
 		}catch(Exception e)
 		{
+			e.printStackTrace();
 			return false;
 		}
 		return true;
@@ -187,9 +188,10 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 
 
-
+	@Resource(name = "hibernateTemplate")//相当于set方法
 	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
 		this.hibernateTemplate = hibernateTemplate;
+		
 	}
 
 
