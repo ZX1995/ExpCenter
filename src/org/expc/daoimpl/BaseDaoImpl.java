@@ -12,6 +12,7 @@ import javax.annotation.Resource;
 
 import org.expc.dao.BaseDao;
 import org.expc.entity.BaseDomain;
+import org.expc.setting.Constant;
 import org.expc.util.PageBean;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -19,8 +20,10 @@ import org.hibernate.Session;
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.orm.hibernate4.HibernateTemplate;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+@Transactional
 public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	private Class<T> entityClass;
 	
@@ -91,7 +94,8 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	public boolean remove(T entity) {
 		try{
 		this.getHibernateTemplate().delete(entity);
-		}catch(DataAccessException e){
+		}catch(Exception e){
+			e.printStackTrace();
 			return false;
 		}
 		return true;
@@ -113,6 +117,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 		this.getHibernateTemplate().update(entity);
 		}catch(Exception  e)
 		{
+			e.printStackTrace();
 			return false;
 		}
 		return true;
@@ -215,13 +220,15 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 
 
 	@Override
-	public PageBean<T> getPage(int pageIndex, final int pageSize) {
+	public PageBean<T> getPage(Integer pageIndex, Integer pageSize) {
 		// TODO Auto-generated method stub
+		if(pageIndex==null) pageIndex=1;
+		if(pageSize==null) pageSize=Constant.PAGE_SIZE.get(entityClass.getSimpleName());
 		final String hql="from "+getEntityClass().getSimpleName();
 		return getPage(hql,pageIndex,pageSize);
 	}
 	@Override
-	public PageBean<T> getPage(final String hql, int pageIndex, final int pageSize) {
+	public PageBean<T> getPage(final String hql, Integer pageIndex, final Integer pageSize) {
 		// TODO Auto-generated method stub
 		int total=getCount(hql);
 		int mxIndex=(total-1)/pageSize+1;

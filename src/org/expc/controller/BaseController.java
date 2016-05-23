@@ -3,19 +3,20 @@ package org.expc.controller;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
+
 import org.expc.dao.BaseDao;
+import org.expc.entity.BaseDomain;
 import org.expc.setting.Constant;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 public  class BaseController<T>{
-	private Class<T> entityClass;
 	protected BaseDao<T> baseDao;
 
-	public Class<T> getEntityClass() {
-		return entityClass;
-	}
 	public void setBaseDao(BaseDao baseDao)
 	{
 		this.baseDao = baseDao;
@@ -32,6 +33,7 @@ public  class BaseController<T>{
 	@RequestMapping("/listRView")
 	public ModelAndView listRView(String view){
 		List<T> list=baseDao.loadAll();
+		if(null == view ) view=baseDao.getEntityClass().getSimpleName().toLowerCase()+"-list.jsp";
 		ModelAndView mav=new ModelAndView(view);
 		mav.addObject("list", list);
 		return mav;
@@ -41,7 +43,12 @@ public  class BaseController<T>{
 	{
 		return baseDao.get(entity);
 	}
-
+	@RequestMapping("/findOne/{view}.htm")
+	public String  findOneRView(T entity,@PathVariable String view, Model model)
+	{
+		model.addAttribute("ele", baseDao.get(entity));
+		return view+".jsp";
+	}
 	@RequestMapping("/add")
 	@ResponseBody public String add(T entity,HttpServletResponse res) throws IOException
 	{
@@ -61,25 +68,48 @@ public  class BaseController<T>{
 		return mav;
 	}
 	
-	@RequestMapping("/deleteById")
-	public void deleteById(Integer[] id)
+	@RequestMapping("/deleteBI")
+	@ResponseBody public String deleteById(Integer[] id)
 	{
-		if(id==null) return ;
+		if(id==null) return "没有选中任何内容";
+		StringBuilder sb = new StringBuilder();
+		int count = 0;
 		for(Serializable s:id)
-			baseDao.remove(s);
+			if(!baseDao.remove(s))
+			{
+				count++;
+				sb.append("id为"+s+"的条目 删除失败");
+			}
+		if(count==0)
+		return "删除成功";
+		else return sb.append(count+"个错误").toString();
 	}
-	@RequestMapping("/deleteByUsername")
-	public void deleteByUsername(String[] username)
+	@RequestMapping("/deleteBS")
+	@ResponseBody public String deleteByString(String[] id)
 	{
-		if(username==null) return ;
-		for(Serializable s:username)
-			baseDao.remove(s);
+		if(id==null) return "没有选中任何内容";
+		StringBuilder sb = new StringBuilder();
+		int count = 0;
+		for(Serializable s:id)
+			if(!baseDao.remove(s))
+			{
+				count++;
+				sb.append("id为"+s+"的条目 删除失败");
+			}
+		if(count==0)
+		return "删除成功";
+		else return sb.append(count+"个错误").toString();
 	}
-	@RequestMapping("/getPage")
-	public @ResponseBody List<T> getPage(Integer pageIndex,Integer pageSize)
+	@RequestMapping("/update")
+	@ResponseBody public String update(T entity)
 	{
-		if(pageIndex==null) pageIndex=1;
-		if(pageSize==null) pageSize=Constant.PAGE_SIZE.get(entityClass.getSimpleName());
+		if(baseDao.update(entity))
+		return "修改成功";
+		return "修改失败";
+	}
+	@RequestMapping("/{pageIndex}/{pageSize}")
+	public @ResponseBody List<T> getPage(@PathVariable Integer pageIndex,@PathVariable Integer pageSize)
+	{
 		return baseDao.getPage(pageIndex, pageSize).getData();
 	}
 	

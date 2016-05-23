@@ -11,12 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/teacher")
 public class TeacherController extends BaseController<Teacher>{
-	private BaseDao baseDao;
 	@Override
 	@Resource(name="teacherDaoImpl")
 	public void setBaseDao(BaseDao baseDao) {
 		// TODO Auto-generated method stub
-		this.baseDao = baseDao;
 		super.setBaseDao(baseDao);
 	}
 }

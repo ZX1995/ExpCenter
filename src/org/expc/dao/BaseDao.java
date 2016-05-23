@@ -27,8 +27,8 @@ public interface BaseDao<T> {
 	 */
 	public abstract int getCount(String hql);
 	
-	public abstract PageBean<T> getPage(int pageIndex,int pageSize);
-    public abstract PageBean<T> getPage(final String hql,int pageIndex,int pageSize);
+	public abstract PageBean<T> getPage(Integer pageIndex,Integer pageSize);
+    public abstract PageBean<T> getPage(final String hql,Integer pageIndex,Integer pageSize);
     public abstract T get(Serializable id);
 	public abstract T get(T entity);
 	public boolean saveOrUpdate(T entity);
