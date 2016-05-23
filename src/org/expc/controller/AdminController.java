@@ -18,4 +18,5 @@ public class AdminController extends BaseController<Admin>{
 		// TODO Auto-generated method stub
 		super.setBaseDao(baseDao);
 	}
+	
 }

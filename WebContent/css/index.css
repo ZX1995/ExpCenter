@@ -3,8 +3,7 @@
 	width: 1100px;
 	text-align: center;
 	margin: 0 auto;
-	background-image: url("../images/bg.png");
-	background-repeat:repeat-x;
+	
     -webkit-box-shadow: 3px 3px 10px #dddddd;
     box-shadow: 0px 3px 15px 2px #dddddd;
 }
@@ -19,7 +18,7 @@
 {
 	width: 1050px;
 	margin: 0 auto;
-	background-color: #61c4f1;
+	background-color: #5599ff;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius:5px;
@@ -92,7 +91,7 @@ float: left;
 .username
 {
 	margin:0 auto;
-	margin-top: 30px;
+	margin-top: 20px;
 	margin-bottom: 5px;
 	width:70%;
 }
@@ -111,7 +110,7 @@ label
 	margin-top:40px;
 	margin-left: 10px;
 	font-family: 幼圆;
-	font-size: 13px;
+	font-size: 11px;
 
 }
 
@@ -119,25 +118,62 @@ label
 button
 {
 	margin-top: 10px;
-	background-color: #61c4f1;
+	background-color: #5599ff;
 	width: 60%;
-	height: 35px;
+	height: 30px;
 	border-radius: 5px;
 	box-shadow:3px 3px 10px 2px #dddddd;
-	filter:alpha(opacity=80);
-	opacity:0.8;
+	
 	border: none;
 	font-family: 微软雅黑;
-	color: #fff;
+	
 
 }
 
-.row .col-md-3 button a
+button:hover
+{
+	filter:alpha(opacity=80);
+	opacity:0.8;
+}
+
+.row .col-md-2 button a
 {
 	text-decoration: none;
+	color: #fff;
 }
+
+
+
 
 .fix-login button a
 {
 	text-decoration: none;
+}
+
+
+
+
+.fastR
+{
+	height: 45px;
+	width: 100%;
+	padding-top: 12px;
+	border-radius: 3px;
+	background-color: #5599ff;
+	border:solid 1px #dddddd;
+
+	 /* box-shadow: inset 0px 0px 10px 3px #dddddd;  */
+	/*box-shadow:  0 3px 20px 3px #dddddd;*/
+}
+
+.fastR:hover
+{
+	box-shadow: inset 0px 0px 5px 1px #dddddd;
+}
+.fastR a
+{
+	color: #fff;
+	font-family: 微软雅黑;
+	text-decoration: none;
+
 }

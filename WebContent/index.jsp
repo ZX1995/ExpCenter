@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body class="myBody">
-  <div id="header"></div>
+  <jsp:include page="header.jsp" flush="true"></jsp:include>
   
   <!-- 主要内容 -->
   <div class="myContainer">
@@ -142,11 +142,7 @@
 
       </div>
   </div>
-
-  <!-- 页脚 -->
-  <div class="myFooter" id="footer">
-       
-   </div>
+	<jsp:include page="footer.jsp" flush="true"></jsp:include>
     <script type="text/javascript" src="js/index.js"></script>
 </body>
 </html> 

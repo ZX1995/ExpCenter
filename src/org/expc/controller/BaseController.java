@@ -30,11 +30,12 @@ public  class BaseController<T>{
 		return list;
 	}
 	//列出所有记录 ,返回页面
-	@RequestMapping("/listRView")
-	public ModelAndView listRView(String view){
+	@RequestMapping("/list/{view}.htm")
+	public ModelAndView listRView(@PathVariable String view){
 		List<T> list=baseDao.loadAll();
 		if(null == view ) view=baseDao.getEntityClass().getSimpleName().toLowerCase()+"-list.jsp";
-		ModelAndView mav=new ModelAndView(view);
+		System.out.println(view);
+		ModelAndView mav=new ModelAndView(view+".jsp");
 		mav.addObject("list", list);
 		return mav;
 	}
