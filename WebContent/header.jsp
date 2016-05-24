@@ -21,9 +21,7 @@
             <ul class="dropdown-menu">
                <li><a href="#">中心简介</a></li>
                <li class="divider"></li>
-               <li><a href="#">组织结构</a></li>
-               <li class="divider"></li>
-               <li><a href="#">中心主任</a></li>
+               <li><a href="#">师资力量</a></li>
                <li class="divider"></li>
                <li><a href="#">实验室介绍</a></li>
                <li class="divider"></li>
@@ -57,9 +55,11 @@
                <li class="divider"></li>
                <li><a href="#">实验课程</a></li>
                <li class="divider"></li>
-               <li><a href="#">实验预约</a></li>
+               <li><a href="#">开放实验</a></li>
                <li class="divider"></li>
                <li><a href="#">创新班教学</a></li>
+               <li class="divider"></li>
+               <li><a href="#">信息管理系统</a></li>
             </ul>
   		</li>
   		<li class="dropdown myLi" >
@@ -84,6 +84,8 @@
                <li><a href="#">教改项目</a></li>
                <li class="divider"></li>
                <li><a href="#">教学成果</a></li>
+               <li class="divider"></li>
+               <li><a href="#">创新作品</a></li>
             </ul>
   		</li>
   		<li class="dropdown myLi" >
@@ -92,7 +94,9 @@
             <ul class="dropdown-menu">
                <li><a href="#">中心制度</a></li>
                <li class="divider"></li>
-               <li><a href="#">学校制度</a></li>
+               <li><a href="#">学院制度</a></li>
+               <li class="divider"></li>
+               <li><a href="#">中心值班表</a></li>
             </ul>
   		</li>
   		<li class="dropdown myLi" >
@@ -110,6 +114,8 @@
   		  <a href="" class="dropdown-toggle" 
   		  data-toggle="dropdown">下载中心<span class="caret"></span></a>
             <ul class="dropdown-menu">
+               <li><a href="#">文档文件</a></li>
+               <li class="divider"></li>
                <li><a href="#">教学资源</a></li>
                <li class="divider"></li>
                <li><a href="#">软件工具</a></li>
