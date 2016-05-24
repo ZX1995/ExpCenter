@@ -10,12 +10,15 @@
 <title></title>
 </head>
 <body>
+	<div>
+	 <div class="title"><a href="">新闻公告</a></div>
 	<c:forEach var="ele" items="${list }" begin="0" end="5"> 
 	<p>
 	<a href="/news/findOne?id=${ele.id }">${ele.title }</a>
 	<span><fmt:formatDate value="${ele.time }" pattern="[yyyy/MM/dd]"/></span>
 	</p>
 	</c:forEach>
+	</div>
 
 </body>
 </html>

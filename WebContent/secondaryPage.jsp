@@ -13,17 +13,17 @@
 	<link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/style1.css">
 </head>
-<body>
+<body class="myBody">
+	
 	<jsp:include page="header.jsp" flush="true"></jsp:include>
-    <div class="content">    
-       <jsp:include page="zxgk.jsp" flush="true"></jsp:include>     
-        
+    <div class="content"> 
+      <jsp:include page="${nav.file }"></jsp:include>   
       <div class="right le-right1">
         <div class="position">
-          <span>当前位置-</span><a href="">中心概况 ></a><a href="">中心简介</a>
+          <span>当前位置-</span><a href="${navLink}">${nav.name } ></a><a href="">${cur}</a>
         </div>
-          <div class="elecontent">${ele.content }</div>
-          
+        <hr></hr>
+          <div class="elecontent">${content }</div>
       </div>
     </div>
 	<jsp:include page="footer.jsp" flush="true"></jsp:include>

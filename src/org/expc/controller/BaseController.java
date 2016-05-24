@@ -21,7 +21,6 @@ public  class BaseController<T>{
 	{
 		this.baseDao = baseDao;
 	}
-	
 	//列出所有记录 ,返回json串
 	@RequestMapping("/list")
 	public @ResponseBody List<T> list()
@@ -29,23 +28,20 @@ public  class BaseController<T>{
 		List<T> list=baseDao.loadAll();
 		return list;
 	}
-	//列出所有记录 ,返回页面
-	@RequestMapping("/list/{view}.htm")
-	public ModelAndView listRView(@PathVariable String view){
+	@RequestMapping("/listRView")
+	public String listRView(Model model,String view)
+	{
 		List<T> list=baseDao.loadAll();
-		if(null == view ) view=baseDao.getEntityClass().getSimpleName().toLowerCase()+"-list.jsp";
-		System.out.println(view);
-		ModelAndView mav=new ModelAndView(view+".jsp");
-		mav.addObject("list", list);
-		return mav;
+		model.addAttribute("list", list);
+		return view;
 	}
 	@RequestMapping("/findOne")
 	public @ResponseBody T findOneById(T entity)
 	{
 		return baseDao.get(entity);
 	}
-	@RequestMapping("/findOne/{view}.htm")
-	public String  findOneRView(T entity,@PathVariable String view, Model model)
+	@RequestMapping("/findOneRView")
+	public String  findOneRView(T entity,String view, Model model)
 	{
 		model.addAttribute("ele", baseDao.get(entity));
 		return view+".jsp";
@@ -108,10 +104,18 @@ public  class BaseController<T>{
 		return "修改成功";
 		return "修改失败";
 	}
-	@RequestMapping("/{pageIndex}/{pageSize}")
+	@RequestMapping(value= "/{pageIndex}/{pageSize}" )
 	public @ResponseBody List<T> getPage(@PathVariable Integer pageIndex,@PathVariable Integer pageSize)
 	{
 		return baseDao.getPage(pageIndex, pageSize).getData();
 	}
-	
+	@RequestMapping(value="/{pageIndex}/{pageSize}.htm" )
+	public String getPageRView(@PathVariable Integer pageIndex,@PathVariable Integer pageSize,Model model,
+			String view )
+	{
+		List<T> list = baseDao.getPage(pageIndex, pageSize).getData();
+		model.addAttribute("list", list);
+		System.out.println("in pageSize");
+		return view;
+	}
 }

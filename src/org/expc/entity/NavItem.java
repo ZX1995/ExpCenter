@@ -10,13 +10,14 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
 
 @Entity
 public class NavItem extends BaseDomain {
 
 	private static final long serialVersionUID = 1L;
 	/**
-	 *栏目标识
+	 *栏目标识,也是栏目的路径
 	 */
 	@Id
 	@Column(length=8)
@@ -127,6 +128,16 @@ public class NavItem extends BaseDomain {
 	public void setId(String id) {
 		this.id = id;
 	}
+	/*@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		if (obj instanceof NavItem) {
+			NavItem nI = (NavItem) obj;
+			if(nI.key().equals(key()))
+				return true;
+		}
+		return false;
+	}*/
 	@Override
 	public Serializable key() {
 		// TODO Auto-generated method stub

@@ -1,6 +1,4 @@
 $(function(){
-	$("#header").load("/header.jsp");
-	$("#footer").load("/footer.jsp");
-	$("#news-list").load("/news/listRView?view=/news-list.jsp");
+	$("#news-list").load("/news/1/6.htm?view=/newsList.jsp");
 });
 

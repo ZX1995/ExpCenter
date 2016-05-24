@@ -71,7 +71,7 @@
     border: solid 1px #5599ff;
     
     box-shadow: 0px 3px 15px 3px #aaaaaa;
-    padding-top: 15px;
+    
     padding-bottom: 30px;
     
 }
@@ -85,7 +85,8 @@
 }
 
 .le-right1 p
-{
+{   
+    font-size: 13px;
     line-height: 30px;
     letter-spacing: 2px;
     text-indent:2em;
@@ -103,7 +104,27 @@
     margin-top: 25px;
 }
 
-.date
+.le-right1 h1
+{
+    font-size: 20px;
+   font-family: 微软雅黑;
+}
+
+.le-right1 h2
+{
+   font-family: 微软雅黑;
+   font-size: 16px;
+}
+
+.le-right1 h3
+{
+   font-family: 黑体;
+   font-size: 16px;
+   text-align: left;
+   text-indent:4em;
+}
+
+.le-right1 div
 {
     margin-top: 25px;
 }
@@ -112,7 +133,6 @@
 {
     color: #666666;
     text-decoration: none;
-   
 }
 
 .return:hover

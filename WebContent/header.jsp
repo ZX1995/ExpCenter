@@ -8,7 +8,7 @@
 <body>
 	<!-- 标题 -->
   <div class="myTitle">
-  	<img src="images/title.png">
+  	<img src="/images/title.png">
   </div>
 
   <!-- 导航 -->

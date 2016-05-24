@@ -1,21 +1,22 @@
 <%@page import="org.expc.setting.Constant"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="sp" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>大连理工大学软件学院实验中心</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<script type="text/javascript" src="js/jquery-2.2.2.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/common.js"></script>
-	<link rel="stylesheet" href="css/index.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="/css/bootstrap.css">
+	<script type="text/javascript" src="/js/jquery-2.2.2.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/common.js"></script>
+	<link rel="stylesheet" href="/css/index.css">
+	<link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="myBody">
   <jsp:include page="header.jsp" flush="true"></jsp:include>
-  
   <!-- 主要内容 -->
   <div class="myContainer">
   	   
@@ -27,24 +28,23 @@
                            <video src="video/zxjj.mp4" autoplay="autoplay" controls="controls">
                            </video>
                        </div>
-                       <div class="col-md-4">
-                            <div>
-                                <div class="title"><a href="">中心新闻</a></div>
-                               	<div id="news-list"></div>
-                               
-                            </div>
+                       <div class="col-md-5" id="news-list">
+                          
                        </div>
-                       <div class="col-md-3">
-                           <div>
-                               <div class="title"><a href="">实验课程</a></div>
-                               <p><a href="">11111111111111111111</a></p>
-                               <p><a href="">11111111111111111111</a></p>
-                               <p><a href="">11111111111111111111</a></p>
-                               <p><a href="">11111111111111111111</a></p>
-                               <p><a href="">11111111111111111111</a></p>
-                               <p><a href="">11111111111111111111</a></p>
-                               
+                       <div class="col-md-2">
+                       <div>
+                               <div class="title"><a href="">登录</a></div>
+                               <input type="text" class="form-control username" placeholder="Username">
+                               <input type="text" class="form-control password" placeholder="Password">
+                               <form>
+                                <label><input class="select" type="radio" name="log" value="teacher"/>&nbsp;教师</label>
+                                 <label><input type="radio" name="log" value="student"/>&nbsp;学生</label>
+                                  <label><input type="radio" name="log" value="admin"/>&nbsp;管理员</label>
+                                  <br>
+                               </form> 
+                                <button><a href="" >登录</a></button>
                            </div>
+                           
                        </div>
                    </div>
                <!--</div>-->
@@ -66,9 +66,9 @@
                            </div>
                        </div>
 
-                       <div class="col-md-4">
+                       <div class="col-md-5">
                            <div>
-                               <div class="title"><a href="">中心通知</a></div>
+                               <div class="title"><a href="">实验课程</a></div>
                                <p><a href="">第十三届科技文化节启动通知……</a><span>[2016/03/05]</span></a></p>
                                <p><a href="">第十三届科技文化节启动通知……</a><span>[2016/03/05]</span></a></p>
                                <p><a href="">第十三届科技文化节启动通知……</a><span>[2016/03/05]</span></a></p>
@@ -79,18 +79,19 @@
                            </div>
                        </div>
 
-                       <div class="col-md-3">
+                       <div class="col-md-2">
                            <div>
-                               <div class="title"><a href="">登录</a></div>
-                               <input type="text" class="form-control username" placeholder="Username">
-                               <input type="text" class="form-control password" placeholder="Password">
-                               <br>
-                                <label><input class="select" type="checkbox" value="">&nbsp;教师</label>
-                                 <label><input type="checkbox" value="">&nbsp;学生</label>
-                                  <label><input type="checkbox" value="">&nbsp;管理员</label>
-                                  <br>
-                                  
-                                <button><a href="" >登录</a></button>
+                             <div class="fastR">
+                              <a href="">虚拟实验平台</a>
+                             </div>
+                             
+                             <div class="fastR">
+                              <a href="">开放实验室预约</a>
+                             </div>
+                             
+                             <br>
+                             <h5>联系我们</h5>
+                               <img src="images/two.png" >
                            </div>
                        </div>
                    </div>
@@ -100,7 +101,7 @@
            <div class="con-thir con">
                <!--<div class="container">-->
                    <div class="row">
-                       <div class="col-md-10 ">
+                       <div class="col-md-12 ">
                             <div id="demo">
                             <div class="demo">
                              	<div id="demo1">
@@ -116,12 +117,7 @@
                            </div>
                             </div>
                        </div>
-                       <div class="col-md-2">
-                           <div>
-                               <h5>联系我们</h5>
-                               <img src="images/two.png" >
-                           </div>
-                       </div>
+                       
                    </div>
                <!--</div>-->
            </div>
