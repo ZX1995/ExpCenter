@@ -23,7 +23,7 @@
       <jsp:include page="/zxdt.jsp"></jsp:include>
 		<div class="right le-right1">
 			<div class="position">
-				<span>当前位置-</span><a href="/020100.htm">中心动态 ></a><a href="">中心新闻</a>
+				<span>当前位置-</span><a href="/board/1/0.htm">中心动态 ></a><a href="">中心新闻</a>
 			</div>
 			<hr></hr>
 			<div>

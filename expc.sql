@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50524
 File Encoding         : 65001
 
-Date: 2016-05-16 19:45:48
+Date: 2016-05-25 19:58:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -31,6 +31,8 @@ CREATE TABLE `admin` (
 -- Records of admin
 -- ----------------------------
 INSERT INTO `admin` VALUES ('a', '', null, 'a');
+INSERT INTO `admin` VALUES ('b', null, null, null);
+INSERT INTO `admin` VALUES ('c', null, null, null);
 
 -- ----------------------------
 -- Table structure for board
@@ -81,11 +83,27 @@ CREATE TABLE `course` (
 INSERT INTO `course` VALUES ('1', '1', '1', '1');
 
 -- ----------------------------
--- Table structure for navigationitem
+-- Table structure for navgroup
 -- ----------------------------
-DROP TABLE IF EXISTS `navigationitem`;
-CREATE TABLE `navigationitem` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `navgroup`;
+CREATE TABLE `navgroup` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `value` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of navgroup
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for navitem
+-- ----------------------------
+DROP TABLE IF EXISTS `navitem`;
+CREATE TABLE `navitem` (
+  `id` char(255) NOT NULL,
   `checkPerson` varchar(255) DEFAULT NULL,
   `checkTime` datetime DEFAULT NULL,
   `_content` longtext,
@@ -95,12 +113,20 @@ CREATE TABLE `navigationitem` (
   `remark` varchar(255) DEFAULT NULL,
   `updatePerson` varchar(255) DEFAULT NULL,
   `updateTime` datetime DEFAULT NULL,
+  `reqUrl` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of navigationitem
+-- Records of navitem
 -- ----------------------------
+INSERT INTO `navitem` VALUES ('010100', null, null, '<p>test</p>', null, '2016-05-02 18:55:52', '中心简介', 'remark', null, null, null);
+INSERT INTO `navitem` VALUES ('010200', null, null, 'test2', null, null, '', null, null, null, null);
+INSERT INTO `navitem` VALUES ('010300', null, null, 'test3', null, null, '', null, null, null, null);
+INSERT INTO `navitem` VALUES ('010400', null, null, 'test4', null, null, '', null, null, null, null);
+INSERT INTO `navitem` VALUES ('010500', null, null, 'test5', null, null, null, null, null, null, null);
+INSERT INTO `navitem` VALUES ('010600', null, null, 'test6', null, null, null, null, null, null, null);
+INSERT INTO `navitem` VALUES ('010700', null, null, '', null, null, null, null, null, null, '/cVideo.jsp');
 
 -- ----------------------------
 -- Table structure for news
@@ -128,11 +154,22 @@ CREATE TABLE `news` (
   `updateTime` datetime DEFAULT NULL,
   `remark` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of news
 -- ----------------------------
+INSERT INTO `news` VALUES ('1', ' <p>\r\n            我校举行的“第六届榜样大工”颁奖典礼，用来宣传表彰我校优秀校友和大学生先进典型，共有13名校友（校友团队）和16名个人及团队获得表彰。其中，我院钟英武校友、顾银同学、“茵迪维德科技”团队分别获得青年校友成就奖、社会实践奖和创业先锋奖。\r\n          </p>', '1', '李丽丽', '2016-05-16 21:48:11', '15级线性代数与解析几何上机安排', null, null, null, null, null, null, null, '1', '1', null, null, null, null, null);
+INSERT INTO `news` VALUES ('2', ' <p>\r\n            我校举行的“第六届榜样大工”颁奖典礼，用来宣传表彰我校优秀校友和大学生先进典型，共有13名校友（校友团队）和16名个人及团队获得表彰。其中，我院钟英武校友、顾银同学、“茵迪维德科技”团队分别获得青年校友成就奖、社会实践奖和创业先锋奖。\r\n          </p>', '1', '李白', '2016-05-16 21:48:11', '我中心获批国家虚拟仿真实验', null, null, null, null, null, null, null, '1', '1', null, null, null, null, null);
+INSERT INTO `news` VALUES ('3', ' <p>\r\n            我校举行的“第六届榜样大工”颁奖典礼，用来宣传表彰我校优秀校友和大学生先进典型，共有13名校友（校友团队）和16名个人及团队获得表彰。其中，我院钟英武校友、顾银同学、“茵迪维德科技”团队分别获得青年校友成就奖、社会实践奖和创业先锋奖。\r\n          </p>', '1', '杜甫', '2016-05-16 21:48:11', '我中心获批国家虚拟仿真实验', null, null, null, null, null, null, null, '1', '1', null, null, null, null, null);
+INSERT INTO `news` VALUES ('4', ' <p>\r\n            我校举行的“第六届榜样大工”颁奖典礼，用来宣传表彰我校优秀校友和大学生先进典型，共有13名校友（校友团队）和16名个人及团队获得表彰。其中，我院钟英武校友、顾银同学、“茵迪维德科技”团队分别获得青年校友成就奖、社会实践奖和创业先锋奖。\r\n          </p>', '1', '杜甫', '2016-05-16 21:48:11', '我中心获批国家虚拟仿真实验', null, null, null, null, null, null, null, '1', '1', null, null, null, null, null);
+INSERT INTO `news` VALUES ('5', ' <p>\r\n            我校举行的“第六届榜样大工”颁奖典礼，用来宣传表彰我校优秀校友和大学生先进典型，共有13名校友（校友团队）和16名个人及团队获得表彰。其中，我院钟英武校友、顾银同学、“茵迪维德科技”团队分别获得青年校友成就奖、社会实践奖和创业先锋奖。\r\n          </p>', '1', '杜甫', '2016-05-16 21:48:11', '我中心获批国家虚拟仿真实验', null, null, null, null, null, null, null, '1', '1', null, null, null, null, null);
+INSERT INTO `news` VALUES ('6', ' <p>\r\n            我校举行的“第六届榜样大工”颁奖典礼，用来宣传表彰我校优秀校友和大学生先进典型，共有13名校友（校友团队）和16名个人及团队获得表彰。其中，我院钟英武校友、顾银同学、“茵迪维德科技”团队分别获得青年校友成就奖、社会实践奖和创业先锋奖。\r\n          </p>', '1', '杜甫', '2016-05-16 21:48:11', '我中心获批国家虚拟仿真实验', null, null, null, null, null, null, null, '1', '1', null, null, null, null, null);
+INSERT INTO `news` VALUES ('7', ' <p>\r\n            我校举行的“第六届榜样大工”颁奖典礼，用来宣传表彰我校优秀校友和大学生先进典型，共有13名校友（校友团队）和16名个人及团队获得表彰。其中，我院钟英武校友、顾银同学、“茵迪维德科技”团队分别获得青年校友成就奖、社会实践奖和创业先锋奖。\r\n          </p>', '1', '杜甫', '2016-05-16 21:48:11', '我中心获批国家虚拟仿真实验', null, null, null, null, null, null, null, '1', '1', null, null, null, null, null);
+INSERT INTO `news` VALUES ('8', ' <p>\r\n            我校举行的“第六届榜样大工”颁奖典礼，用来宣传表彰我校优秀校友和大学生先进典型，共有13名校友（校友团队）和16名个人及团队获得表彰。其中，我院钟英武校友、顾银同学、“茵迪维德科技”团队分别获得青年校友成就奖、社会实践奖和创业先锋奖。\r\n          </p>', '1', '杜甫', '2016-05-16 21:48:11', '我中心获批国家虚拟仿真实验', null, null, null, null, null, null, null, '1', '1', null, null, null, null, null);
+INSERT INTO `news` VALUES ('9', ' <p>\r\n            我校举行的“第六届榜样大工”颁奖典礼，用来宣传表彰我校优秀校友和大学生先进典型，共有13名校友（校友团队）和16名个人及团队获得表彰。其中，我院钟英武校友、顾银同学、“茵迪维德科技”团队分别获得青年校友成就奖、社会实践奖和创业先锋奖。\r\n          </p>', '1', '杜甫', '2016-05-16 21:48:11', '我中心获批国家虚拟仿真实验', null, null, null, null, null, null, null, '1', '1', null, null, null, null, null);
+INSERT INTO `news` VALUES ('10', ' <p>\r\n            我校举行的“第六届榜样大工”颁奖典礼，用来宣传表彰我校优秀校友和大学生先进典型，共有13名校友（校友团队）和16名个人及团队获得表彰。其中，我院钟英武校友、顾银同学、“茵迪维德科技”团队分别获得青年校友成就奖、社会实践奖和创业先锋奖。\r\n          </p>', '1', '杜甫', '2016-05-16 21:48:11', '我中心获批国家虚拟仿真实验', null, null, null, null, null, null, null, '1', '1', null, null, null, null, null);
+INSERT INTO `news` VALUES ('11', ' <p>\r\n            我校举行的“第六届榜样大工”颁奖典礼，用来宣传表彰我校优秀校友和大学生先进典型，共有13名校友（校友团队）和16名个人及团队获得表彰。其中，我院钟英武校友、顾银同学、“茵迪维德科技”团队分别获得青年校友成就奖、社会实践奖和创业先锋奖。\r\n          </p>', '1', '杜甫', '2016-05-16 21:48:11', '我中心获批国家虚拟仿真实验', null, null, null, null, null, null, null, '1', '1', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for student

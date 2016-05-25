@@ -11,7 +11,7 @@
             
             <ul>
                 <li class="navTitle">
-                <a href="/020100.htm">中心动态</a></li>
+                <a href="/board/1/0.htm">中心动态</a></li>
                 <li><a class="aa" href="/board/1/0.htm">通知公告</a></li>
                 <li><a class="aa" href="/news/1/0.htm">中心新闻</a></li>
 				
