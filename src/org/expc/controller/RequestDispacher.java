@@ -22,7 +22,7 @@ public class RequestDispacher {
 	public String Home()
 	{
 		
-		return Constant.HOME;
+		return "/index.jsp";
 	}
 	@RequestMapping("/loginPage")
 	public String loginPage()
@@ -31,17 +31,17 @@ public class RequestDispacher {
 	}
 	
 	@RequestMapping("/{id}.htm")
-	public String Navdispatcher(@PathVariable String id,Model model){
+	public String navDispatcher(@PathVariable String id,Model model){
 		NavItem nI = nIDao.get(id);
 		int index= Integer.parseInt(id.substring(0, 2));
 		String navLink = "/"+id.substring(0,2)+"0100.htm";
 		Nav nav = Constant.navs[index];
 		model.addAttribute("nav",nav);
 		model.addAttribute("navLink", navLink);
-		model.addAttribute("cur",nI.getName());
-		model.addAttribute("content", nI.getContent());
+		model.addAttribute("nI", nI);
 		return "/secondaryPage.jsp";
 	}
+	
 	/*@RequestMapping("{key}.adm")
 	public String AdmDispatcher(@PathVariable String key, Model model){
 		String 

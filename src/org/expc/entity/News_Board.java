@@ -85,11 +85,14 @@ public class News_Board extends BaseDomain {
 	 * 备注
 	 */
 	private String remark;
+	/**
+	 * 发布时间
+	 */
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="_time")
 	private Date time;
 	/**
-	 * 发布人的username
+	 * 发布人
 	 */
 	private String publisher;
 	

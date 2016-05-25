@@ -14,33 +14,33 @@
   <!-- 导航 -->
   <div class="myNav">
   	<ul class="nav nav-pills nav-justified">
-  		<li class="myLi"><a href="">首页</a></li>
+  		<li class="myLi"><a href="/home">首页</a></li>
   		<li class="dropdown myLi" >
   		  <a href="" class="dropdown-toggle" 
   		  data-toggle="dropdown">中心概况<span class="caret"></span></a>
             <ul class="dropdown-menu">
-               <li><a href="#">中心简介</a></li>
+               <li><a href="/010100.htm">中心简介</a></li>
                <li class="divider"></li>
-               <li><a href="#">师资力量</a></li>
+               <li><a href="/010200.htm">师资力量</a></li>
                <li class="divider"></li>
-               <li><a href="#">实验室介绍</a></li>
+               <li><a href="/010300.htm">实验室介绍</a></li>
                <li class="divider"></li>
-               <li><a href="#">自我评价</a></li>
+               <li><a href="/010400.htm">自我评价</a></li>
                <li class="divider"></li>
-               <li><a href="#">发展规划</a></li>
+               <li><a href="/010500.htm">发展规划</a></li>
                <li class="divider"></li>
-               <li><a href="#">中心特色</a></li>
+               <li><a href="/010600.htm">中心特色</a></li>
                <li class="divider"></li>
-               <li><a href="#">中心视频</a></li>
+               <li><a href="/010700.htm">中心视频</a></li>
             </ul>
   		</li>
   		<li class="dropdown myLi" >
   		  <a href="" class="dropdown-toggle" 
   		  data-toggle="dropdown">中心动态<span class="caret"></span></a>
             <ul class="dropdown-menu">  
-               <li><a href="#">通知公告</a></li>
+               <li><a href="/board/1/0.htm">通知公告</a></li>
                <li class="divider"></li>
-               <li><a href="#">中心新闻</a></li>
+               <li><a href="/news/1/0.htm">中心新闻</a></li>
             </ul>
   		</li>
   		<li class="dropdown myLi" >

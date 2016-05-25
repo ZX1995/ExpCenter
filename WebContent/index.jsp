@@ -2,7 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="sp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +15,7 @@
 	<link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="myBody">
-  <jsp:include page="header.jsp" flush="true"></jsp:include>
+  <jsp:include page="/header.jsp" flush="true"></jsp:include>
   <!-- 主要内容 -->
   <div class="myContainer">
   	   
@@ -29,7 +28,6 @@
                            </video>
                        </div>
                        <div class="col-md-5" id="news-list">
-                          
                        </div>
                        <div class="col-md-2">
                        <div>
@@ -91,7 +89,7 @@
                              
                              <br>
                              <h5>联系我们</h5>
-                               <img src="images/two.png" >
+                               <img src="/images/two.png" >
                            </div>
                        </div>
                    </div>
@@ -105,11 +103,11 @@
                             <div id="demo">
                             <div class="demo">
                              	<div id="demo1">
-                             		<a href=""><img src="images/img1.png"></a>
-                             		<a href=""><img src="images/img2.png"></a>
-                                <a href=""><img src="images/img3.png"></a>
-                                <a href=""><img src="images/img4.png"></a>
-                                <a href=""><img src="images/img1.png"></a>
+                             		<a href=""><img src="/images/img1.png"></a>
+                             		<a href=""><img src="/images/img2.png"></a>
+                                <a href=""><img src="/images/img3.png"></a>
+                                <a href=""><img src="/images/img4.png"></a>
+                                <a href=""><img src="/images/img1.png"></a>
 
                              	</div>
                              	
@@ -125,11 +123,11 @@
            <div class="con-fif">
                 <div class="row">
                     <div class="con-fif-picture"><div>
-                      <img src="images/link1.png">
-                      <img src="images/link1.png">
-                      <img src="images/link1.png">
-                      <img src="images/link1.png">
-                      <img src="images/link1.png">
+                      <img src="/images/link1.png">
+                      <img src="/images/link1.png">
+                      <img src="/images/link1.png">
+                      <img src="/images/link1.png">
+                      <img src="/images/link1.png">
                     </div></div>
                     
                 </div>
@@ -138,7 +136,7 @@
 
       </div>
   </div>
-	<jsp:include page="footer.jsp" flush="true"></jsp:include>
-    <script type="text/javascript" src="js/index.js"></script>
+	<jsp:include page="/footer.jsp" flush="true"></jsp:include>
+    <script type="text/javascript" src="/js/index.js"></script>
 </body>
 </html> 

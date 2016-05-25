@@ -8,7 +8,7 @@ public class Constant {
 		   PAGE_SIZE.put("Admin",8);
 		   PAGE_SIZE.put("Student", 8);
 		   PAGE_SIZE.put("Teacher", 8);
-		   PAGE_SIZE.put("Post", 8);
+		   PAGE_SIZE.put("Board", 8);
 		   PAGE_SIZE.put("News", 8);
 		   PAGE_SIZE.put("Course", 8);
 		   PAGE_SIZE.put("Unit", 8);

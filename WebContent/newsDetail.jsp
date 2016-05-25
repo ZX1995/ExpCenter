@@ -1,9 +1,9 @@
+<%@page import="org.expc.entity.NavItem"%>
 <%@page import="org.expc.setting.Constant"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> 
+ <%@taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
+ <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -26,20 +26,14 @@
 				<span>当前位置-</span><a href="/020100.htm">中心动态 ></a><a href="">中心新闻</a>
 			</div>
 			<hr></hr>
+			<h1>${ele.title }</h1>
 			<div>
-			<c:forEach var="ele" items="${pb.data }" > 
-			<p>
-			<a href="/news/${ele.id }.htm">${ele.title }</a>
-			<span><fmt:formatDate value="${ele.time }" pattern="[yyyy/MM/dd]"/></span>
-			</p>
-			</c:forEach>
+				<span><fmt:formatDate value="${ele.time }" pattern="yyyy年MM月dd日"/></span>&nbsp;&nbsp;&nbsp;
+				<span>${ele.publisher }</span>
 			</div>
-			<a href="/news/1/0.htm">第一页</a>
-			<a href="/news/${pb.prePage }/0.htm">前一页</a>
-			<span>${pb.pageIndex }/${pb.mxIndex }</span>
-			<a href="/news/${pb.nextPage }/0.htm">后一页</a>
-			<a href="/news/${pb.mxIndex }/0.htm">最后一页</a>
+			${ele.content }
 		</div>
 	</div>
+	<jsp:include page="/footer.jsp" flush="true"></jsp:include>
 </body>
 </html>

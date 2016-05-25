@@ -33,6 +33,10 @@ public class NavItem extends BaseDomain {
 	@Column(name="_content")
 	private String content;
 	/**
+	 * 请求url
+	 */
+	private String reqUrl;
+	/**
 	 * 创建人
 	 */
 	private String createPerson;
@@ -138,9 +142,16 @@ public class NavItem extends BaseDomain {
 		}
 		return false;
 	}*/
+	
 	@Override
 	public Serializable key() {
 		// TODO Auto-generated method stub
 		return id;
+	}
+	public String getReqUrl() {
+		return reqUrl;
+	}
+	public void setReqUrl(String reqUrl) {
+		this.reqUrl = reqUrl;
 	}
 }

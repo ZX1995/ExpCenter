@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.expc.dao.BaseDao;
 import org.expc.entity.BaseDomain;
 import org.expc.setting.Constant;
+import org.expc.util.CommonUtil;
+import org.expc.util.PageBean;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,48 +24,23 @@ public  class BaseController<T>{
 		this.baseDao = baseDao;
 	}
 	//列出所有记录 ,返回json串
-	@RequestMapping("/list")
+	@RequestMapping("/list.jso")
 	public @ResponseBody List<T> list()
 	{
 		List<T> list=baseDao.loadAll();
 		return list;
 	}
-	@RequestMapping("/listRView")
-	public String listRView(Model model,String view)
-	{
-		List<T> list=baseDao.loadAll();
-		model.addAttribute("list", list);
-		return view;
-	}
-	@RequestMapping("/findOne")
-	public @ResponseBody T findOneById(T entity)
-	{
-		return baseDao.get(entity);
-	}
-	@RequestMapping("/findOneRView")
-	public String  findOneRView(T entity,String view, Model model)
-	{
-		model.addAttribute("ele", baseDao.get(entity));
-		return view+".jsp";
-	}
+	
+	
 	@RequestMapping("/add")
-	@ResponseBody public String add(T entity,HttpServletResponse res) throws IOException
+	@ResponseBody public String add(T entity) throws IOException
 	{
 		String msg="添加成功";
 		if(!baseDao.save(entity))
 			msg="添加失败";
 		return msg;
 	}
-	@RequestMapping("/addRView")
-	public ModelAndView addRView(T entity,String view)
-	{
-		String msg="添加成功";
-		if(!baseDao.save(entity))
-			msg="添加失败";
-		ModelAndView mav=new ModelAndView(view);
-		mav.addObject("msg",msg);
-		return mav;
-	}
+	
 	
 	@RequestMapping("/deleteBI")
 	@ResponseBody public String deleteById(Integer[] id)
@@ -104,18 +81,19 @@ public  class BaseController<T>{
 		return "修改成功";
 		return "修改失败";
 	}
-	@RequestMapping(value= "/{pageIndex}/{pageSize}" )
+	@RequestMapping(value= "/{pageIndex}/{pageSize}.jso" )
 	public @ResponseBody List<T> getPage(@PathVariable Integer pageIndex,@PathVariable Integer pageSize)
 	{
 		return baseDao.getPage(pageIndex, pageSize).getData();
 	}
 	@RequestMapping(value="/{pageIndex}/{pageSize}.htm" )
 	public String getPageRView(@PathVariable Integer pageIndex,@PathVariable Integer pageSize,Model model,
-			String view )
+			String view)
 	{
-		List<T> list = baseDao.getPage(pageIndex, pageSize).getData();
-		model.addAttribute("list", list);
-		System.out.println("in pageSize");
+		PageBean<T> pb = baseDao.getPage(pageIndex, pageSize);
+		model.addAttribute("pb", pb);
+		if(null == view) 
+		return "/"+CommonUtil.fLTLC(baseDao.getEntityClass().getSimpleName())+"List.jsp";
 		return view;
 	}
 }

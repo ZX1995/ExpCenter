@@ -223,7 +223,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	public PageBean<T> getPage(Integer pageIndex, Integer pageSize) {
 		// TODO Auto-generated method stub
 		if(pageIndex==null) pageIndex=1;
-		if(pageSize==null||0==pageSize) pageSize=Constant.PAGE_SIZE.get(entityClass.getSimpleName());
+		if(pageSize==null||pageSize.equals(0)) pageSize=Constant.PAGE_SIZE.get(entityClass.getSimpleName());
 		final String hql="from "+getEntityClass().getSimpleName();
 		return getPage(hql,pageIndex,pageSize);
 	}
