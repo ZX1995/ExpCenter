@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50524
 File Encoding         : 65001
 
-Date: 2016-05-25 19:58:27
+Date: 2016-05-27 19:36:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -106,7 +106,7 @@ CREATE TABLE `navitem` (
   `id` char(255) NOT NULL,
   `checkPerson` varchar(255) DEFAULT NULL,
   `checkTime` datetime DEFAULT NULL,
-  `_content` longtext,
+  `_content` mediumtext,
   `createPerson` varchar(255) DEFAULT NULL,
   `createTime` datetime DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -120,7 +120,7 @@ CREATE TABLE `navitem` (
 -- ----------------------------
 -- Records of navitem
 -- ----------------------------
-INSERT INTO `navitem` VALUES ('010100', null, null, '<p>test</p>', null, '2016-05-02 18:55:52', '中心简介', 'remark', null, null, null);
+INSERT INTO `navitem` VALUES ('010100', null, null, '<p>中心简介</p>\r\n', null, null, '中心简介', '', null, null, null);
 INSERT INTO `navitem` VALUES ('010200', null, null, 'test2', null, null, '', null, null, null, null);
 INSERT INTO `navitem` VALUES ('010300', null, null, 'test3', null, null, '', null, null, null, null);
 INSERT INTO `navitem` VALUES ('010400', null, null, 'test4', null, null, '', null, null, null, null);
@@ -134,7 +134,7 @@ INSERT INTO `navitem` VALUES ('010700', null, null, '', null, null, null, null, 
 DROP TABLE IF EXISTS `news`;
 CREATE TABLE `news` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `_content` varchar(255) DEFAULT NULL,
+  `_content` longtext,
   `publishRole` int(11) NOT NULL,
   `publisher` varchar(255) DEFAULT NULL,
   `_time` datetime DEFAULT NULL,

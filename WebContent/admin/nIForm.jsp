@@ -22,21 +22,21 @@
 	class="form-horizontal asyn-form" enctype="multipart/form-data"  >
 		<div class="form-group col-sm-2">
 			<label >条目标识</label>
-			<input name="id"  class="form-control" value="${ ele.id}">
+			<input name="id"  class="form-control" value="${ ele.id}" required>
 		</div>
 		<div class="form-group col-sm-2">
 			<label >条目名称</label>
-			<input name="name"  class="form-control" value="${ele.name }">
+			<input name="name"  class="form-control" value="${ele.name }" required>
 		</div>
 		<div class="form-group col-sm-2" value="${ele.remark }">
 			<label >条目备注</label>
-			<input name="remark"  class="form-control">
+			<input name="remark"  class="form-control" >
 		</div>
 		<div class="form-group">
 			<label >条目内容</label>
 			<textarea rows="10" cols="5" name="content" id="content" >${ele.content }</textarea>
 		</div>
-		<input type="file" name="file" >
+		<input type="file" name="htmlFile" >
 		<button type="submit" class="btn btn-default">提交</button>
 	</form>
 	<script type="text/javascript">
