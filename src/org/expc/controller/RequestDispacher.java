@@ -41,9 +41,17 @@ public class RequestDispacher {
 		model.addAttribute("nI", nI);
 		return "/secondaryPage.jsp";
 	}
-	
-	/*@RequestMapping("{key}.adm")
+	@RequestMapping("/admin")
+	public String admin(){
+		return "/admin/admin.jsp";
+	}
+	@RequestMapping("{key}.adm")
 	public String AdmDispatcher(@PathVariable String key, Model model){
-		String 
-	}*/
+		return "/"+key+"/1/0.htm?view=/admin/"+key+"List.jsp";
+	}
+	@RequestMapping("/{view}.fm")
+	public String addForm(@PathVariable String view)
+	{
+		return "/admin/"+view+".jsp";
+	}
 }

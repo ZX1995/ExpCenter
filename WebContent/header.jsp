@@ -4,8 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+<body class="myBody">
 	<!-- 标题 -->
   <div class="myTitle">
   	<img src="/images/title.png">

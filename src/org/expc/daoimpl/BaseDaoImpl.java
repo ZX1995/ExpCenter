@@ -26,7 +26,6 @@ import org.springframework.util.Assert;
 @Transactional
 public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	private Class<T> entityClass;
-	
 	private HibernateTemplate hibernateTemplate;//hibernateTemplate就是hibernate
 
 	public HibernateTemplate getHibernateTemplate() {
@@ -37,6 +36,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 		Type genType = getClass().getGenericSuperclass();
 		Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
 		entityClass = (Class) params[0];
+		
 	}
 
 	@Override
@@ -45,10 +45,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 		return (T) getHibernateTemplate().load(entityClass, id);
 	}
 
-	public T get(T entity) {
-		BaseDomain base=(BaseDomain) entity;
-		return (T) this.getHibernateTemplate().get(entityClass,base.key());
-	}
+	
 	@Override
 	public T get(Serializable id) {
 		// TODO Auto-generated method stub
@@ -77,7 +74,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 		System.out.println("in the baseDao Impl");
 		try{
 		this.getHibernateTemplate().save(entity);
-		}catch(Exception e)
+		}catch(Throwable e)
 		{
 			e.printStackTrace();
 			return false;
@@ -195,6 +192,8 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 
 	@Resource(name = "hibernateTemplate")//相当于set方法
 	public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
+		//配置查询缓存
+		//hibernateTemplate.setCacheQueries(true);
 		this.hibernateTemplate = hibernateTemplate;
 		
 	}
@@ -202,11 +201,11 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 
 
 	@Override
-	public int getCount(String hql) {
+	public long getCount(String hql) {
 		// TODO Auto-generated method stub
 		hql="select count(*) "+hql; 
-		List<T> list=find(hql);
-		return Integer.parseInt(list.get(0).toString());
+		List<Long> list=(List<Long>) hibernateTemplate.find(hql);
+		return list.get(0);
 	}
 
 
@@ -228,9 +227,9 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 		return getPage(hql,pageIndex,pageSize);
 	}
 	@Override
-	public PageBean<T> getPage(final String hql, Integer pageIndex, final Integer pageSize) {
+	public PageBean<T> getPage(final String hql, Integer pageIndex, final Integer pageSize)  {
 		// TODO Auto-generated method stub
-		int total=getCount(hql);
+		int total=(int) getCount(hql);
 		int mxIndex=(total-1)/pageSize+1;
 		if(pageIndex>mxIndex) pageIndex=mxIndex;
 		if(pageIndex<1) pageIndex=1;

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import org.expc.util.PageBean;
+import org.springframework.dao.DataAccessException;
 public interface BaseDao<T> {
 
 	public abstract T load(Serializable id);
@@ -25,12 +26,11 @@ public interface BaseDao<T> {
 	 * @param hql 
 	 * @return
 	 */
-	public abstract int getCount(String hql);
+	public abstract long getCount(String hql);
 	
 	public abstract PageBean<T> getPage(Integer pageIndex,Integer pageSize);
     public abstract PageBean<T> getPage(final String hql,Integer pageIndex,Integer pageSize);
     public abstract T get(Serializable id);
-	public abstract T get(T entity);
 	public boolean saveOrUpdate(T entity);
 	
 }

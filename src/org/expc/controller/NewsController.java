@@ -19,7 +19,7 @@ public class NewsController extends BaseController<News>{
 		super.setBaseDao(baseDao);
 	}
 	@RequestMapping("{id}.htm")
-	public String findOne(@PathVariable Integer id, Model model){
+	public String findOne(@PathVariable String id, Model model){
 		News ele = baseDao.get(id);
 		model.addAttribute("ele", ele);
 		return "/newsDetail.jsp";

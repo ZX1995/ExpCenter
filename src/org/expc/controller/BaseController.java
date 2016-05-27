@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.expc.dao.BaseDao;
 import org.expc.entity.BaseDomain;
+import org.expc.entity.News;
 import org.expc.setting.Constant;
 import org.expc.util.CommonUtil;
 import org.expc.util.PageBean;
@@ -74,8 +75,18 @@ public  class BaseController<T>{
 		return "删除成功";
 		else return sb.append(count+"个错误").toString();
 	}
-	@RequestMapping("/update")
-	@ResponseBody public String update(T entity)
+	
+	@RequestMapping("/{view}/{id}.fm")
+	public String modifyForm(@PathVariable String view, @PathVariable String id, Model model)
+	{
+		Serializable s = id;
+		T ele = baseDao.get(s);
+		model.addAttribute("ele", ele);
+		model.addAttribute("action", "modify");
+		return "/admin/"+view+".jsp";
+	}
+	@RequestMapping("/modify")
+	@ResponseBody public String modify(T entity)
 	{
 		if(baseDao.update(entity))
 		return "修改成功";

@@ -20,7 +20,7 @@ public class News_Board extends BaseDomain {
 	/**
 	 * 帖子内容（必）
 	 */
-	@Column(name="_content")
+	@Column(name="_content",length=30000)
 	private String content;
 	/**
 	 * 帖子标题（必）
