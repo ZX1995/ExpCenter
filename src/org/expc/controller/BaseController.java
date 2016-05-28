@@ -43,24 +43,8 @@ public  class BaseController<T>{
 	}
 	
 	
-	@RequestMapping("/deleteBI")
-	@ResponseBody public String deleteById(Integer[] id)
-	{
-		if(id==null) return "没有选中任何内容";
-		StringBuilder sb = new StringBuilder();
-		int count = 0;
-		for(Serializable s:id)
-			if(!baseDao.remove(s))
-			{
-				count++;
-				sb.append("id为"+s+"的条目 删除失败");
-			}
-		if(count==0)
-		return "删除成功";
-		else return sb.append(count+"个错误").toString();
-	}
-	@RequestMapping("/deleteBS")
-	@ResponseBody public String deleteByString(String[] id)
+	@RequestMapping("/delete")
+	@ResponseBody public String delete(String[] id)
 	{
 		if(id==null) return "没有选中任何内容";
 		StringBuilder sb = new StringBuilder();
@@ -106,5 +90,12 @@ public  class BaseController<T>{
 		if(null == view) 
 		return "/"+CommonUtil.fLTLC(baseDao.getEntityClass().getSimpleName())+"List.jsp";
 		return view;
+	}
+
+	@RequestMapping("{id}.htm")
+	public String findOne(@PathVariable String id, Model model){
+		T ele = baseDao.get(id);
+		model.addAttribute("ele", ele);
+		return "/"+CommonUtil.fLTLC(baseDao.getEntityClass().getSimpleName())+"Detail.jsp";
 	}
 }

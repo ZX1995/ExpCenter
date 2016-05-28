@@ -18,10 +18,5 @@ public class NewsController extends BaseController<News>{
 		// TODO Auto-generated method stub
 		super.setBaseDao(baseDao);
 	}
-	@RequestMapping("{id}.htm")
-	public String findOne(@PathVariable String id, Model model){
-		News ele = baseDao.get(id);
-		model.addAttribute("ele", ele);
-		return "/newsDetail.jsp";
-	}
+	
 }

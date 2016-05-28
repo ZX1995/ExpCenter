@@ -251,9 +251,9 @@ public class News_Board extends BaseDomain {
 	}
 
 	@Override
-	public Serializable key() {
+	public Class<?> keyClass() {
 		// TODO Auto-generated method stub
-		return id;
+		return Integer.class;
 	}
 	
 }

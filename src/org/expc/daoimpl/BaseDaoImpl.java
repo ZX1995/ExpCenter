@@ -1,6 +1,7 @@
 ﻿package org.expc.daoimpl;
 
 import java.io.Serializable;
+import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.sql.SQLException;
@@ -23,11 +24,12 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+
 @Transactional
 public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	private Class<T> entityClass;
+	private Class<?> keyClass;
 	private HibernateTemplate hibernateTemplate;//hibernateTemplate就是hibernate
-
 	public HibernateTemplate getHibernateTemplate() {
 		return hibernateTemplate;
 	}
@@ -35,8 +37,14 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	public BaseDaoImpl() {
 		Type genType = getClass().getGenericSuperclass();
 		Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
-		entityClass = (Class) params[0];
-		
+		entityClass = (Class<T>) params[0];
+		try{
+			Method m = entityClass.getMethod("keyClass");
+			T obj = entityClass.newInstance();
+			keyClass = (Class<?>) m.invoke(obj);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -49,7 +57,10 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	@Override
 	public T get(Serializable id) {
 		// TODO Auto-generated method stub
-		return this.getHibernateTemplate().get(entityClass, id);
+		Serializable key=id;
+		if(id instanceof String&&keyClass == Integer.class)
+			key = Integer.valueOf((String)id);
+		return this.getHibernateTemplate().get(entityClass, key);
 	}
 	/*
 	 * (non-Javadoc)

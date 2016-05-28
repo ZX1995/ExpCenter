@@ -141,11 +141,6 @@ public class NavItem extends BaseDomain {
 		return false;
 	}*/
 	
-	@Override
-	public Serializable key() {
-		// TODO Auto-generated method stub
-		return id;
-	}
 	public String getReqUrl() {
 		return reqUrl;
 	}

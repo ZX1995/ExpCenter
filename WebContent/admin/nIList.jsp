@@ -9,7 +9,7 @@
 </head>
 <body>
 	<a href="/nIForm.fm">添加</a>
-	<form action="/nI/deleteBS" method="post" class="asyn-form">
+	<form action="/nI/delete" method="post" class="asyn-form">
 	<table>
 		<tr><th>标识</th><th>名称</th><th>备注</th><th></th></tr>
 		<c:forEach  var="ele" items="${pb.data }">
@@ -20,6 +20,7 @@
 			<td>${ele.remark }</td>
 			<td><a href="/nI/nIForm/${ele.id }.fm">编辑</a></td>
 			<td><input type="checkbox" name="id" value="${ele.id }"></td>
+			<td><a href="/nI/download/${ele.id }">下载</a>
 			</tr>
 		</c:if>
 		</c:forEach>

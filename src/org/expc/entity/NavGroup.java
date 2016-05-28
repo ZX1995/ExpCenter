@@ -49,9 +49,5 @@ public class NavGroup extends BaseDomain{
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	@Override
-	public Serializable key() {
-		// TODO Auto-generated method stub
-		return id;
-	}
+	
 }

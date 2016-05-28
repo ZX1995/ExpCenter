@@ -59,11 +59,6 @@ public class User extends BaseDomain{
 		this.email = email;
 	}
 	
-	@Override
-	public Serializable key() {
-		// TODO Auto-generated method stub
-		return username;
-	}
 	
 	
 }

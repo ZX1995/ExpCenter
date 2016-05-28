@@ -18,7 +18,7 @@
 		float:none;
 		}
 	</style>
-	<form action ='/nI/${(empty action)?"add":"modify"}' method="post"  role="form" 
+	<form action ='/nI/${(empty action)?"addWithFile":"modifyWithFile"}' method="post"  role="form" 
 	class="form-horizontal asyn-form" enctype="multipart/form-data"  >
 		<div class="form-group col-sm-2">
 			<label >条目标识</label>

@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Course {
+public class Course extends BaseDomain{
 @Id
 private String fileDir;
 private String name;
