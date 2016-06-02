@@ -21,7 +21,7 @@
 	<jsp:include page="/header.jsp" flush="true"></jsp:include>
     <div class="content"> 
       <jsp:include page="/zxdt.jsp"></jsp:include>
-		<div class="right le-right1">
+		<div class="right le-right1">-
 			<div class="position">
 				<span>当前位置-</span><a href="/board/1/0.htm">中心动态 ></a><a href="">中心新闻</a>
 			</div>

@@ -5,11 +5,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="/css/nIList.css">
 <title></title>
 </head>
 <body>
-	<a href="/nIForm.fm">添加</a>
-	<form action="/nI/delete" method="post" class="asyn-form">
+	<a href="/nIForm.fm" class="op">添加</a>
+	<a class="op" onclick="del.submit()">删除选中条目</a>
+
+    <br><br>
+	<form action="/nI/delete" method="post" class="asyn-form" id="del">
 	<table>
 		<tr><th>标识</th><th>名称</th><th>备注</th><th></th></tr>
 		<c:forEach  var="ele" items="${pb.data }">
@@ -25,7 +29,7 @@
 		</c:if>
 		</c:forEach>
 	</table>
-	<button>删除选中条目</button>
+	
 	</form>
 </body>
 </html>

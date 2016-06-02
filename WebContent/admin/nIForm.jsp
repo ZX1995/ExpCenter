@@ -1,43 +1,44 @@
 <%@page import="org.expc.setting.Constant"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><%=Constant.projectTitle %></title>
-<link rel="stylesheet" href="/css/bootstrap.css">
 <script type="text/javascript" src="/js/jquery-2.2.2.min.js"></script>
-<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
 <script src="/ckeditor/ckeditor.js"></script>
 <script src="/ckfinder/ckfinder.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/nIList.css">
 </head>
 <body>
-	<style type="text/css">
-		.form-group{
-		float:none;
-		}
-	</style>
+	
 	<form action ='/nI/${(empty action)?"addWithFile":"modifyWithFile"}' method="post"  role="form" 
 	class="form-horizontal asyn-form" enctype="multipart/form-data"  >
-		<div class="form-group col-sm-2">
+		
 			<label >条目标识</label>
-			<input name="id"  class="form-control" value="${ ele.id}" required>
-		</div>
-		<div class="form-group col-sm-2">
+			<input name="id"  class="form-control" value="${ ele.id}" required>&nbsp;&nbsp;
+		
+		
 			<label >条目名称</label>
-			<input name="name"  class="form-control" value="${ele.name }" required>
-		</div>
-		<div class="form-group col-sm-2" value="${ele.remark }">
+			<input name="name"  class="form-control" value="${ele.name }" required>&nbsp;&nbsp;
+		
+		
 			<label >条目备注</label>
-			<input name="remark"  class="form-control" >
-		</div>
-		<div class="form-group">
-			<label >条目内容</label>
-			<textarea rows="10" cols="5" name="content" id="content" >${ele.content }</textarea>
-		</div>
-		<input type="file" name="htmlFile" >
+			<input name="remark"  class="form-control"  value="${ele.remark }">
+		
+		<br><br>
+			<label >条目内容</label><br><br>
+			<textarea name="content" id="content" >${ele.content }</textarea>
+		<br>
+		
+		<a class="a-upload">
+           <input type="file" name="htmlFile">点击这里上传文件
+        </a>
+        <span class="showFileName">文件名称</span>
 		<button type="submit" class="btn btn-default">提交</button>
+		
 	</form>
 	<script type="text/javascript">
 	var editor=CKEDITOR.replace( 'content', {
@@ -48,6 +49,19 @@
  	    filebrowserImageUploadUrl: '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Images',
  	    filebrowserFlashUploadUrl: '/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash'
  	});
+	$(".a-upload").on("change","input[type='file']",function(){
+	    var filePath=$(this).val();
+	    if(filePath.indexOf("doc")!=-1 || filePath.indexOf("html")!=-1){
+	        //$(".fileerrorTip").html("").hide();
+	        var arr=filePath.split('\\');
+	        var fileName=arr[arr.length-1];
+	        $(".showFileName").html(fileName);
+	    }else{
+	        $(".showFileName").html("上传错误！");
+	       
+	        return false 
+	    }
+	})
 	</script>
 </body>
 </html>

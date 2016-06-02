@@ -24,15 +24,6 @@ public  class BaseController<T>{
 	{
 		this.baseDao = baseDao;
 	}
-	//列出所有记录 ,返回json串
-	@RequestMapping("/list.jso")
-	public @ResponseBody List<T> list()
-	{
-		List<T> list=baseDao.loadAll();
-		return list;
-	}
-	
-	
 	@RequestMapping("/add")
 	@ResponseBody public String add(T entity) throws IOException
 	{
@@ -76,11 +67,6 @@ public  class BaseController<T>{
 		return "修改成功";
 		return "修改失败";
 	}
-	@RequestMapping(value= "/{pageIndex}/{pageSize}.jso" )
-	public @ResponseBody List<T> getPage(@PathVariable Integer pageIndex,@PathVariable Integer pageSize)
-	{
-		return baseDao.getPage(pageIndex, pageSize).getData();
-	}
 	@RequestMapping(value="/{pageIndex}/{pageSize}.htm" )
 	public String getPageRView(@PathVariable Integer pageIndex,@PathVariable Integer pageSize,Model model,
 			String view)
@@ -93,7 +79,7 @@ public  class BaseController<T>{
 	}
 
 	@RequestMapping("{id}.htm")
-	public String findOne(@PathVariable String id, Model model){
+	public String findOne(@PathVariable String id, Model model,String view){
 		T ele = baseDao.get(id);
 		model.addAttribute("ele", ele);
 		return "/"+CommonUtil.fLTLC(baseDao.getEntityClass().getSimpleName())+"Detail.jsp";
