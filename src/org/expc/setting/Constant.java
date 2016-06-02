@@ -12,7 +12,7 @@ public class Constant {
 		   PAGE_SIZE.put("News", 8);
 		   PAGE_SIZE.put("Course", 8);
 		   PAGE_SIZE.put("Unit", 8);
-		   PAGE_SIZE.put("NavItem", 30);
+		   PAGE_SIZE.put("NavItem", 15);
 	   }
 	   public static final Nav [] navs={new Nav(),new Nav("中心概况","zxgk.jsp"),new Nav("中心动态","zxdt.jsp"),
 		   new Nav("实验教学","syjx.jsp"),new Nav("虚拟仿真","xnfz.jsp"),new Nav("中心成果","zxcg.jsp"),

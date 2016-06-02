@@ -134,9 +134,9 @@
       </div>
   </div>
 	<jsp:include page="/footer.jsp" flush="true"></jsp:include>
-    <script type="text/javascript" src="/js/index.js"></script>
     <script type="text/javascript" src="/js/jquery-2.2.2.min.js"></script>
 	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/js/common.js"></script>
+	 <script type="text/javascript" src="/js/index.js"></script>
 </body>
 </html> 
